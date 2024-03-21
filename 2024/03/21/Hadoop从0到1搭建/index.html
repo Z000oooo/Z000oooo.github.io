@@ -20,30 +20,69 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="选择有时候比努力更重要">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Z000oooo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="简介HDFS（Hadoop Distributed File System）是Apache Hadoop生态系统的一部分，是一种分布式文件系统，旨在处理大规模数据集的存储和处理。以下是HDFS的一些关键特点和功能：  分布式存储：HDFS将数据分布式存储在多个物理节点上，以实现高容量和高可靠性。数据被划分为多个数据块（block），并在集群中的多个节点上进行复制存储，以提供容错能力和数据冗余。 扩">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop从0到1搭建">
+<meta property="og:url" content="http://example.com/2024/03/21/Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="Z000oooo">
-<meta property="og:description" content="选择有时候比努力更重要">
+<meta property="og:description" content="简介HDFS（Hadoop Distributed File System）是Apache Hadoop生态系统的一部分，是一种分布式文件系统，旨在处理大规模数据集的存储和处理。以下是HDFS的一些关键特点和功能：  分布式存储：HDFS将数据分布式存储在多个物理节点上，以实现高容量和高可靠性。数据被划分为多个数据块（block），并在集群中的多个节点上进行复制存储，以提供容错能力和数据冗余。 扩">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682228091494-747b6ac7-8b11-4af6-9178-f973c351408c.png#averageHue=%23121212&clientId=u1ad30e4d-132b-4&from=paste&height=163&id=ua58f6505&originHeight=245&originWidth=680&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=10296&status=done&style=none&taskId=ufc130561-17d0-4179-a63d-456b6779d74&title=&width=453.3333333333333">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682228221799-50f5bdb8-c5ff-4b87-b7f5-67459f2b7558.png#averageHue=%230e0e0e&clientId=u1ad30e4d-132b-4&from=paste&height=239&id=uce9172dd&originHeight=359&originWidth=659&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=11763&status=done&style=none&taskId=ucd43a14f-8d25-4296-82e8-c4fbfce43db&title=&width=439.3333333333333">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682228357526-03cf8cad-c413-4007-acad-07f2d4aa5009.png#averageHue=%23706f6f&clientId=u1ad30e4d-132b-4&from=paste&height=755&id=ub55dc94b&originHeight=1133&originWidth=1610&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=122110&status=done&style=none&taskId=u21cdf429-6ab8-4824-8653-f8e240a5d8f&title=&width=1073.3333333333333">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682229264525-41fa3794-5406-4385-a020-825cf98dc0a2.png#averageHue=%23040404&clientId=u1ad30e4d-132b-4&from=paste&height=449&id=u4acb06bd&originHeight=674&originWidth=770&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=11247&status=done&style=none&taskId=u5886c278-6d0b-4cb2-943e-55c99d67fe9&title=&width=513.3333333333334">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682229977569-db7d37bd-9b0f-48d7-b11a-72f594e55561.png#averageHue=%230a0a0a&clientId=u1ad30e4d-132b-4&from=paste&height=51&id=ua0aada98&originHeight=76&originWidth=648&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=2120&status=done&style=none&taskId=u4e8ecb7b-d130-4148-a19f-094f041f8a6&title=&width=432">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682229494801-ee24f6e3-0f80-4d7f-96dd-6ab2e5237edb.png#averageHue=%231c1c1c&clientId=u1ad30e4d-132b-4&from=paste&height=117&id=u62c5a06d&originHeight=175&originWidth=532&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=8694&status=done&style=none&taskId=uf87f5c33-1769-46bf-b232-b793da238d7&title=&width=354.6666666666667">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682229689062-835feae0-5c16-45df-a28a-fe7f834613c4.png#averageHue=%23f0f0ef&clientId=u1ad30e4d-132b-4&from=paste&height=401&id=ua1de99ec&originHeight=602&originWidth=802&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=24179&status=done&style=none&taskId=udb441715-9981-44a1-afe7-a53e57bed19&title=&width=534.6666666666666">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682229900165-5fc4e018-0245-47b6-9bc8-721227016b21.png#averageHue=%23090909&clientId=u1ad30e4d-132b-4&from=paste&height=25&id=ue25e0560&originHeight=38&originWidth=285&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=542&status=done&style=none&taskId=u8dd59a16-7991-49ae-8100-45b7413cd9f&title=&width=190">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682229920551-d68c6b2c-6ce1-4d68-a6fe-2ffd6f308452.png#averageHue=%230f0f0f&clientId=u1ad30e4d-132b-4&from=paste&height=264&id=ua7ea0149&originHeight=396&originWidth=694&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=13507&status=done&style=none&taskId=uf614eb51-6fc8-476f-936b-9eee8edfa7f&title=&width=462.6666666666667">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682230099633-508fc990-6f48-4511-9814-2f672f0ddede.png#averageHue=%23080808&clientId=u1ad30e4d-132b-4&from=paste&height=269&id=u86c9b863&originHeight=404&originWidth=551&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=7957&status=done&style=none&taskId=u7eb4a7a2-d27e-4941-8dee-6f246c17582&title=&width=367.3333333333333">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682231354995-dc70da23-c015-46dc-beb2-b234b8ba7a3a.png#averageHue=%230b0b0b&clientId=u1ad30e4d-132b-4&from=paste&height=83&id=u2e602b44&originHeight=125&originWidth=681&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=2984&status=done&style=none&taskId=u6f5488de-ea68-4094-b3a6-c91d5fa0cad&title=&width=454">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682231545957-e7fa5aef-a300-4925-adc4-08ec160871fc.png#averageHue=%230e0e0d&clientId=u1ad30e4d-132b-4&from=paste&height=301&id=u5c98864f&originHeight=451&originWidth=837&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=37847&status=done&style=none&taskId=u019e9647-b8f2-4f1c-960d-7466b00a05f&title=&width=558">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682231779523-ab7c7bf5-e476-4c49-9ca9-0f9308c7da27.png#averageHue=%230f0f0f&clientId=u1ad30e4d-132b-4&from=paste&height=173&id=ue0019350&originHeight=259&originWidth=821&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=11407&status=done&style=none&taskId=u3081105f-5088-4a16-9327-795fe70e84f&title=&width=547.3333333333334">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682231761332-9d59d844-1d49-4481-a7a8-46b0dd43bd85.png#averageHue=%23111111&clientId=u1ad30e4d-132b-4&from=paste&height=43&id=uc4063779&originHeight=64&originWidth=552&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=1855&status=done&style=none&taskId=ud4bdcba7-ef37-474b-b996-40c1a3a65db&title=&width=368">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682233222349-8ae40f7a-a235-42b5-9b7f-519067256f08.png#averageHue=%23090706&clientId=u1ad30e4d-132b-4&from=paste&height=161&id=ue77d134a&originHeight=242&originWidth=651&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=18744&status=done&style=none&taskId=ua1cfc01b-285a-4774-9b05-e67ed261c22&title=&width=434">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682232683759-6eadd532-8167-46eb-b3b8-a44af7a58d1f.png#averageHue=%2321201f&clientId=u1ad30e4d-132b-4&from=paste&height=253&id=uf3837c37&originHeight=379&originWidth=824&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=29211&status=done&style=none&taskId=u8ce095e3-72ed-4a2c-bf4b-676cee3cb4f&title=&width=549.3333333333334">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682233522600-0b4b873d-59f6-4689-8432-fe3500747900.png#averageHue=%23060505&clientId=u1ad30e4d-132b-4&from=paste&height=150&id=u3b0e565a&originHeight=225&originWidth=630&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=12475&status=done&style=none&taskId=ub1266760-e2a1-4d61-a737-a15560e21c7&title=&width=420">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682234070815-c5917358-e2a0-4f5b-b0c9-b1115b405835.png#averageHue=%230f0c0a&clientId=u1ad30e4d-132b-4&from=paste&height=51&id=u87728471&originHeight=76&originWidth=869&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=8394&status=done&style=none&taskId=uf05c40ce-93bf-4046-adb9-8974d7e20b5&title=&width=579.3333333333334">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682234615018-6c675eeb-8dd4-4ba0-8764-c601304abad9.png#averageHue=%230e0b09&clientId=u1ad30e4d-132b-4&from=paste&height=85&id=u086ab1fe&originHeight=127&originWidth=742&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=13100&status=done&style=none&taskId=u19d28edb-8256-42fc-9e21-9eeef168397&title=&width=494.6666666666667">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682235080208-6579f039-5106-42bc-a14f-4b7792768d92.png#averageHue=%230a0807&clientId=u1ad30e4d-132b-4&from=paste&height=81&id=u4d8caf40&originHeight=121&originWidth=677&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=7047&status=done&style=none&taskId=u843b954d-d193-4cd9-a08f-2e80c72f58d&title=&width=451.3333333333333">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682235117562-6636a595-d84d-4e2b-83e8-7e298b926df3.png#averageHue=%23100f0d&clientId=u1ad30e4d-132b-4&from=paste&height=166&id=uc3f5e316&originHeight=249&originWidth=1114&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=25662&status=done&style=none&taskId=u0c15b98a-0683-496a-b814-845ef40f307&title=&width=742.6666666666666">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682239141578-1d122c3f-74ed-456e-999b-ae9bdd0ae828.png#averageHue=%230c0a08&clientId=u1ad30e4d-132b-4&from=paste&height=118&id=uf3373137&originHeight=177&originWidth=415&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=10518&status=done&style=none&taskId=uae24b696-3340-4eec-8f96-3cf3fadc0ec&title=&width=276.6666666666667">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682239153712-a0ce75d2-34f2-4e09-b369-ec34a87ca286.png#averageHue=%2314110f&clientId=u1ad30e4d-132b-4&from=paste&height=103&id=ucf8132d2&originHeight=154&originWidth=423&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=9291&status=done&style=none&taskId=uc77a565d-18fb-4e98-a989-eacf92c986e&title=&width=282">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682239167744-55d8cf39-d19e-4dc6-a307-57d7f8a992e4.png#averageHue=%230d0a09&clientId=u1ad30e4d-132b-4&from=paste&height=93&id=ufe8fffe5&originHeight=140&originWidth=380&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=8247&status=done&style=none&taskId=u9e1cec8f-cfdb-4186-99de-85d1d5542cc&title=&width=253.33333333333334">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682239488991-48bf4dda-7a38-42c6-8774-16fd3e810278.png#averageHue=%23f9f8f8&clientId=u1ad30e4d-132b-4&from=paste&height=314&id=uef7a3514&originHeight=471&originWidth=1734&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=52334&status=done&style=none&taskId=u2b5dcd1e-e954-4444-b8d5-2272144bce1&title=&width=1156">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682239522608-e1cfb064-9748-47f6-be60-d38d6122f009.png#averageHue=%23ececeb&clientId=u1ad30e4d-132b-4&from=paste&height=340&id=ub636c839&originHeight=510&originWidth=1926&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=123080&status=done&style=none&taskId=ubbae1fe0-5fc5-4fcd-99c6-79b2c6133e0&title=&width=1284">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682240193553-3bcc6cfa-e2e4-41aa-9940-99559745f3a1.png#averageHue=%23fbfafa&clientId=u1ad30e4d-132b-4&from=paste&height=150&id=u7499319a&originHeight=225&originWidth=1716&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=21763&status=done&style=none&taskId=uad61d428-d149-479b-b60f-8de8f27a7d9&title=&width=1144">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682240272669-f3ebfd32-4129-4973-9cd1-63e2a4740447.png#averageHue=%23fbfbfb&clientId=u1ad30e4d-132b-4&from=paste&height=194&id=ua8b155fd&originHeight=291&originWidth=1869&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=27537&status=done&style=none&taskId=u6d18a8a6-4429-42eb-a89b-56b26210674&title=&width=1246">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682240328115-cffcc9b3-1abb-484a-b46c-9c1a6bc04f8b.png#averageHue=%23080705&clientId=u1ad30e4d-132b-4&from=paste&height=71&id=u330337aa&originHeight=107&originWidth=1017&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=9140&status=done&style=none&taskId=u01b79367-ff4b-4dc1-af92-8fe1c0171b7&title=&width=678">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682240376761-f92f740f-cfe9-4a6d-aeeb-580407d1b613.png#averageHue=%23080605&clientId=u1ad30e4d-132b-4&from=paste&height=51&id=uccfe2246&originHeight=76&originWidth=920&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=5458&status=done&style=none&taskId=u01ad8c88-9755-4176-8569-bcc4897a8b8&title=&width=613.3333333333334">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682240544307-116bc8f5-871d-4ca6-9d47-5d1b097eb417.png#averageHue=%23070605&clientId=u1ad30e4d-132b-4&from=paste&height=95&id=u7ac028b6&originHeight=143&originWidth=742&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=9301&status=done&style=none&taskId=ufcd2ef2c-d2d7-4489-b8d6-e09905f6b09&title=&width=494.6666666666667">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682240623616-e7ca4b9f-f2c0-4c18-baff-dcf48f084fd8.png#averageHue=%2312100e&clientId=u1ad30e4d-132b-4&from=paste&height=89&id=ub12cac5b&originHeight=133&originWidth=1117&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=13125&status=done&style=none&taskId=ue9eccc59-1394-499e-8412-d427b6a9ced&title=&width=744.6666666666666">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682240640809-4742473c-bfd4-46d2-ae97-7e7623d03fa0.png#averageHue=%23fcfcfc&clientId=u1ad30e4d-132b-4&from=paste&height=194&id=uae62e156&originHeight=291&originWidth=1889&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=23185&status=done&style=none&taskId=u90e0635b-ec4b-480c-9937-0cb36177691&title=&width=1259.3333333333333">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682240901573-a5af125c-c9e9-431d-ab66-46f59eebe185.png#averageHue=%23fbfbfa&clientId=u1ad30e4d-132b-4&from=paste&height=537&id=u76ab47b0&originHeight=806&originWidth=1863&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=82808&status=done&style=none&taskId=u365ed92f-36db-486b-90fc-12e76de984b&title=&width=1242">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682241162484-9b6ce60f-fede-4973-8d62-4f2a5ae68fbe.png#averageHue=%230c0908&clientId=u1ad30e4d-132b-4&from=paste&height=45&id=uc4270d46&originHeight=67&originWidth=559&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=5142&status=done&style=none&taskId=u649e75c3-fb2d-4c13-8799-8aee1a5d6f2&title=&width=372.6666666666667">
+<meta property="article:published_time" content="2024-03-21T06:15:00.000Z">
+<meta property="article:modified_time" content="2024-03-21T06:16:57.438Z">
 <meta property="article:author" content="Z000oooo">
+<meta property="article:tag" content="大数据">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682228091494-747b6ac7-8b11-4af6-9178-f973c351408c.png#averageHue=%23121212&clientId=u1ad30e4d-132b-4&from=paste&height=163&id=ua58f6505&originHeight=245&originWidth=680&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=10296&status=done&style=none&taskId=ufc130561-17d0-4179-a63d-456b6779d74&title=&width=453.3333333333333">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2024/03/21/Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Z000oooo</title>
+  <title>Hadoop从0到1搭建 | Z000oooo</title>
   
 
 
@@ -171,9 +210,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -189,10 +229,9 @@
       <meta itemprop="name" content="Z000oooo">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/21/Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">Hadoop从0到1搭建</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Hadoop从0到1搭建
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -206,6 +245,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -216,7 +262,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>HDFS（Hadoop Distributed File System）是Apache Hadoop生态系统的一部分，是一种分布式文件系统，旨在处理大规模数据集的存储和处理。<br>以下是HDFS的一些关键特点和功能：</p>
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>HDFS（Hadoop Distributed File System）是Apache Hadoop生态系统的一部分，是一种分布式文件系统，旨在处理大规模数据集的存储和处理。<br>以下是HDFS的一些关键特点和功能：</p>
 <ol>
 <li>分布式存储：HDFS将数据分布式存储在多个物理节点上，以实现高容量和高可靠性。数据被划分为多个数据块（block），并在集群中的多个节点上进行复制存储，以提供容错能力和数据冗余。</li>
 <li>扩展性：HDFS可以扩展到大规模的数据集和节点数。它可以运行在大型集群上，通过添加更多的节点来增加存储容量和数据处理能力。</li>
@@ -511,91 +557,50 @@ jdk-8u161-linux-x64.tar.gz
 
 <p>启动hadoop：sbin&#x2F;start-dfs.sh<br>关闭hadoop：sbin&#x2F;stop-dfs.sh<br>启动yarn：sbin&#x2F;start-yarn.sh<br>关闭yarn：sbin&#x2F;stop-yarn.sh</p>
 
-      
     </div>
 
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Z000oooo
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2024/03/21/Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA/" title="Hadoop从0到1搭建">http://example.com/2024/03/21/Hadoop从0到1搭建/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag"># 大数据</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/03/21/hello-world/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Z000oooo">
-      <meta itemprop="description" content="选择有时候比努力更重要">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Z000oooo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/03/21/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-03-21 10:47:38" itemprop="dateCreated datePublished" datetime="2024-03-21T10:47:38+08:00">2024-03-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/03/21/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -648,6 +653,7 @@ jdk-8u161-linux-x64.tar.gz
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">1.Linux系统安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">1.环境准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%99%9A%E6%8B%9F%E6%9C%BACentos%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">2.虚拟机Centos系统安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E9%9D%99%E6%80%81%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">3.静态网络配置</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%85%8B%E9%9A%86%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">2.虚拟机克隆配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AEhosts%E6%96%87%E4%BB%B6%E5%92%8Cssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">3.配置hosts文件和ssh免密登录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Hadoop%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">4.Hadoop集群配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-Hadoop%E9%9B%86%E7%BE%A4%E6%B5%8B%E8%AF%95"><span class="nav-number">6.</span> <span class="nav-text">5.Hadoop集群测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hadoop%E6%A0%B8%E5%BF%83hdfs%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8"><span class="nav-number">6.0.0.1.</span> <span class="nav-text">hadoop核心hdfs命令使用</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-%E5%85%B3%E9%97%AD"><span class="nav-number">7.</span> <span class="nav-text">启动&#x2F;关闭</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
