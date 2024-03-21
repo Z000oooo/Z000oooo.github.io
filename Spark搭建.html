@@ -20,24 +20,23 @@
     var CONFIG = {"hostname":"xiaowang.life","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="介绍Kafka是一种高吞吐量的分布式发布订阅消息系统，它可以处理消费者规模的网站中的所有动作流数据。Producer即生产者，向Kafka集群发送消息，在发送消息之前，会对消息进行分类，即主题（Topic），通过对消息指定主题可以将消息分类，消费者可以只关注自己需要的Topic中的消息。Consumer，即消费者，消费者通过与kafka集群建立长连接的方式，不断地从集群中拉取消息，然后可以对这些消">
+  <meta name="description" content="介绍Apache Spark 是专为大规模数据处理而设计的快速通用的计算引擎，是类似于Hadoop MapReduce的通用并行框架。Spark拥有Hadoop MapReduce所具有的优点，但不同于MapReduce的是——Job中间输出结果可以保存在内存中，从而不再需要读写HDFS，因此Spark能更好地适用于数据挖掘与机器学习等需要迭代的MapReduce的算法。Spark实际上是对Had">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kafka搭建">
-<meta property="og:url" content="https://xiaowang.life/Kafka%E6%90%AD%E5%BB%BA.html">
+<meta property="og:title" content="Spark搭建">
+<meta property="og:url" content="https://xiaowang.life/Spark%E6%90%AD%E5%BB%BA.html">
 <meta property="og:site_name" content="Z000oooo">
-<meta property="og:description" content="介绍Kafka是一种高吞吐量的分布式发布订阅消息系统，它可以处理消费者规模的网站中的所有动作流数据。Producer即生产者，向Kafka集群发送消息，在发送消息之前，会对消息进行分类，即主题（Topic），通过对消息指定主题可以将消息分类，消费者可以只关注自己需要的Topic中的消息。Consumer，即消费者，消费者通过与kafka集群建立长连接的方式，不断地从集群中拉取消息，然后可以对这些消">
+<meta property="og:description" content="介绍Apache Spark 是专为大规模数据处理而设计的快速通用的计算引擎，是类似于Hadoop MapReduce的通用并行框架。Spark拥有Hadoop MapReduce所具有的优点，但不同于MapReduce的是——Job中间输出结果可以保存在内存中，从而不再需要读写HDFS，因此Spark能更好地适用于数据挖掘与机器学习等需要迭代的MapReduce的算法。Spark实际上是对Had">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xiaowang.life/Kafka%E6%90%AD%E5%BB%BA/image-20240321161900195.png">
-<meta property="og:image" content="https://xiaowang.life/Kafka%E6%90%AD%E5%BB%BA/image-20240321161910332.png">
-<meta property="article:published_time" content="2024-03-21T08:15:46.000Z">
-<meta property="article:modified_time" content="2024-03-21T08:19:20.874Z">
+<meta property="og:image" content="https://xiaowang.life/Spark%E6%90%AD%E5%BB%BA/image-20240321192254791.png">
+<meta property="article:published_time" content="2024-03-21T11:17:38.000Z">
+<meta property="article:modified_time" content="2024-03-21T11:23:09.617Z">
 <meta property="article:author" content="Z000oooo">
 <meta property="article:tag" content="搭建">
-<meta property="article:tag" content="kafka">
+<meta property="article:tag" content="spark">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://xiaowang.life/Kafka%E6%90%AD%E5%BB%BA/image-20240321161900195.png">
+<meta name="twitter:image" content="https://xiaowang.life/Spark%E6%90%AD%E5%BB%BA/image-20240321192254791.png">
 
-<link rel="canonical" href="https://xiaowang.life/Kafka%E6%90%AD%E5%BB%BA.html">
+<link rel="canonical" href="https://xiaowang.life/Spark%E6%90%AD%E5%BB%BA.html">
 
 
 <script id="page-configurations">
@@ -50,7 +49,7 @@
   };
 </script>
 
-  <title>Kafka搭建 | Z000oooo</title>
+  <title>Spark搭建 | Z000oooo</title>
   
 
 
@@ -185,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xiaowang.life/Kafka%E6%90%AD%E5%BB%BA.html">
+    <link itemprop="mainEntityOfPage" href="https://xiaowang.life/Spark%E6%90%AD%E5%BB%BA.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -198,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Kafka搭建
+          Spark搭建
         </h1>
 
         <div class="post-meta">
@@ -209,7 +208,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-03-21 16:15:46 / 修改时间：16:19:20" itemprop="dateCreated datePublished" datetime="2024-03-21T16:15:46+08:00">2024-03-21</time>
+              <time title="创建时间：2024-03-21 19:17:38 / 修改时间：19:23:09" itemprop="dateCreated datePublished" datetime="2024-03-21T19:17:38+08:00">2024-03-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -239,18 +238,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Kafka是一种高吞吐量的分布式发布订阅消息系统，它可以处理消费者规模的网站中的所有动作流数据。Producer即生产者，向Kafka集群发送消息，在发送消息之前，会对消息进行分类，即主题（Topic），通过对消息指定主题可以将消息分类，消费者可以只关注自己需要的Topic中的消息。Consumer，即消费者，消费者通过与kafka集群建立长连接的方式，不断地从集群中拉取消息，然后可以对这些消息进行处理。<span id="more"></span></p>
-<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>kafka是由scala和java编写的，所以我们要先安装配置scala</p>
-<p>解压并配置环境变量</p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf scala-<span class="number">2.11</span>.<span class="number">8</span>.tgz -C /app/servers/</span><br><span class="line"></span><br><span class="line"># 环境配置</span><br><span class="line">[root@master scala-<span class="number">2.11</span>.<span class="number">8</span>]# vi /etc/profile</span><br><span class="line">#Scala Env</span><br><span class="line">export SCALA_HOME=/app/servers/scala-<span class="number">2.11</span>.<span class="number">8</span></span><br><span class="line">export PATH=$PATH:$SCALA_HOME/bin</span><br><span class="line">[root@master scala-<span class="number">2.11</span>.<span class="number">8</span>]# source /etc/profile</span><br><span class="line"></span><br><span class="line"># 验证</span><br><span class="line">[root@master servers]# scala -version</span><br><span class="line">Scala code runner version <span class="number">2.11</span>.<span class="number">8</span> -- Copyright <span class="number">2002</span>-<span class="number">2016</span>, LAMP/EPFL</span><br><span class="line"></span><br><span class="line"># 这个需要在剩下两个子节点重复步骤</span><br></pre></td></tr></table></figure>
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Apache Spark 是专为大规模数据处理而设计的快速通用的计算引擎，是类似于Hadoop MapReduce的通用并行框架。Spark拥有Hadoop MapReduce所具有的优点，但不同于MapReduce的是——Job中间输出结果可以保存在内存中，从而不再需要读写HDFS，因此Spark能更好地适用于数据挖掘与机器学习等需要迭代的MapReduce的算法。Spark实际上是对Hadoop的一种补充，可以很好的在Hadoop 文件系统中并行运行。<span id="more"></span></p>
+<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>解压 、配置</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解压</span></span><br><span class="line">[root@master software]<span class="comment"># tar -zxf spark-2.4.0-bin-hadoop2.7.tgz -C /app/servers/</span></span><br><span class="line">[root@master servers]<span class="comment"># mv spark-2.4.0-bin-hadoop2.7 spark-2.4.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置</span></span><br><span class="line"><span class="comment"># Spark Env</span></span><br><span class="line">export SPARK_HOME=/app/servers/spark-<span class="number">2.4</span>.<span class="number">0</span></span><br><span class="line">export PATH=<span class="variable">$PATH</span>:<span class="variable">$SPARK_HOME</span>/bin</span><br></pre></td></tr></table></figure>
 
-<p>安装配置和kafka</p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># 解压</span><br><span class="line">tar -zxvf kafka_2.<span class="number">11</span>-<span class="number">2.1</span>.<span class="number">0</span>.tgz -C /app/servers/</span><br><span class="line"># 重命名</span><br><span class="line">mv kafka_2.<span class="number">11</span>-<span class="number">2.1</span>.<span class="number">0</span>/ kafka-<span class="number">2.1</span>.<span class="number">0</span></span><br><span class="line"></span><br><span class="line"># 配置环境变量</span><br><span class="line">vim /etc/profile</span><br><span class="line">#Kafka Env</span><br><span class="line">export KAFKA_HOME=/app/servers/kafka-<span class="number">2.1</span>.<span class="number">0</span></span><br><span class="line">export PATH=$PATH:$KAFKA/bin</span><br><span class="line">source /etc/profile</span><br><span class="line"></span><br><span class="line"># 修改server.properties文件，找到对应的位置，修改如下</span><br><span class="line">[root@master servers]# vi kafka-<span class="number">2.1</span>.<span class="number">0</span>/config/server.properties </span><br><span class="line">broker.id=<span class="number">0</span></span><br><span class="line">listeners=PLAINTEXT:<span class="number">192.168</span>.<span class="number">77.138</span>//:<span class="number">9092</span></span><br><span class="line">advertised.listeners=PLAINTEXT://<span class="number">192.168</span>.<span class="number">77.138</span>:<span class="number">9092</span></span><br><span class="line">zookeeper.connect=<span class="number">192.168</span>.<span class="number">77.138</span>:<span class="number">2181</span>,<span class="number">192.168</span>.<span class="number">77.139</span>:<span class="number">2181</span>,<span class="number">192.168</span>.<span class="number">77.140</span>:<span class="number">2181</span></span><br><span class="line"></span><br><span class="line"># 把master节点上修改好的kafka整个文件夹传到其余两个子节点</span><br><span class="line"># 在另外两个节点分别把broker.id 修改为<span class="number">1</span>，<span class="number">2</span></span><br><span class="line"># listeners 在ip哪里分别修改成子节点对应的，既  PLAINTEXT://<span class="number">192.168</span>.<span class="number">77.139</span>:<span class="number">9092</span> 和 PLAINTEXT://<span class="number">192.168</span>.<span class="number">77.140</span>:<span class="number">9092</span></span><br><span class="line"># 其他的不需要修改</span><br></pre></td></tr></table></figure>
+<p>修改 spark-env.sh文件  </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@master spark]<span class="comment"># cd spark-2.4.0/conf/</span></span><br><span class="line">[root@master conf]<span class="comment"># mv spark-env.sh.template spark-env.sh</span></span><br><span class="line">[root@master conf]<span class="comment"># vi spark-env.sh </span></span><br><span class="line">  export JAVA_HOME=/app/servers/jdk1.<span class="number">8.0_191</span></span><br><span class="line">	export SCALA_HOME=/app/servers/scala-<span class="number">2.11</span>.<span class="number">8</span></span><br><span class="line">	export HADOOP_HOME=/app/servers/hadoop-<span class="number">2.7</span>.<span class="number">7</span></span><br><span class="line">	export HADOOP_CONF_DIR=/app/servers/hadoop-<span class="number">2.7</span>.<span class="number">7</span>/etc/hadoop</span><br></pre></td></tr></table></figure>
 
-<p>测试</p>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 在三个节点分别启动该kafka</span><br><span class="line">[root@slave2 kafka-<span class="number">2.1</span>.<span class="number">0</span>]# nohup bin/kafka-server-start.sh /app/servers/kafka-<span class="number">2.1</span>.<span class="number">0</span>/config/server.properties &amp;</span><br><span class="line"># 执行之后 输入jps 有kafka就说明成功了</span><br><span class="line"></span><br><span class="line"># 主节点上创建主题TestTopic</span><br><span class="line">[root@master kafka-<span class="number">2.1</span>.<span class="number">0</span>]# bin/kafka-topics.sh --zookeeper <span class="number">192.168</span>.<span class="number">77.138</span>:<span class="number">2181</span>,<span class="number">192.168</span>.<span class="number">77.139</span>:<span class="number">2181</span>,<span class="number">192.168</span>.<span class="number">77.140</span>:<span class="number">2181</span> --topic TestTopic --replication-factor <span class="number">1</span> --partitions <span class="number">1</span> --create</span><br><span class="line"></span><br><span class="line"># 主节点启动一个生产者</span><br><span class="line">[root@master kafka-<span class="number">2.1</span>.<span class="number">0</span>]# bin/kafka-console-producer.sh --broker-list <span class="number">192.168</span>.<span class="number">77.138</span>:<span class="number">9092</span>,<span class="number">192.168</span>.<span class="number">77.139</span>:<span class="number">9092</span>,<span class="number">192.168</span>.<span class="number">77.140</span>:<span class="number">9092</span> --topic TestTopic</span><br><span class="line">&gt;</span><br><span class="line"></span><br><span class="line"># 在其他两个节点分别创建消费者</span><br><span class="line">[root@slave1 kafka-<span class="number">2.1</span>.<span class="number">0</span>]# bin/kafka-console-consumer.sh --bootstrap-server <span class="number">192.168</span>.<span class="number">77.139</span>:<span class="number">9092</span> --topic TestTopic --from-beginning</span><br><span class="line">[root@slave2 kafka-<span class="number">2.1</span>.<span class="number">0</span>]# bin/kafka-console-consumer.sh --bootstrap-server <span class="number">192.168</span>.<span class="number">77.140</span>:<span class="number">9092</span> --topic TestTopic --from-beginning</span><br><span class="line"># 之后在主节点输入一段话：</span><br><span class="line">&gt;hello world</span><br><span class="line"># 然后在另外两个节点也就是消费者那里也出现了这句话，即消费到了该数据</span><br></pre></td></tr></table></figure>
+<p> 修改slaves文件  </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@master conf]<span class="comment"># mv slaves.template slaves</span></span><br><span class="line">[root@master conf]<span class="comment"># vi slaves </span></span><br><span class="line">master</span><br><span class="line">slave1</span><br><span class="line">slave2</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Kafka%E6%90%AD%E5%BB%BA/image-20240321161900195.png" alt="image-20240321161900195"><br><img src="/Kafka%E6%90%AD%E5%BB%BA/image-20240321161910332.png" alt="image-20240321161910332"><br>kafka配置完成</p>
+<p> 在其余两个子节点上操作  </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@master servers]<span class="comment"># scp -r /app/servers/spark-2.4.0/ slave1:/app/servers/</span></span><br><span class="line">[root@master servers]<span class="comment"># scp -r /app/servers/spark-2.4.0/ slave2:/app/servers/</span></span><br><span class="line"><span class="comment"># 别忘在另外两个节点也要在/etc/profile下配置环境变量并source一下使生效！</span></span><br></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@master local]<span class="comment"># cd spark/spark-2.4.0/                </span></span><br><span class="line">[root@master spark-<span class="number">2.4</span>.<span class="number">0</span>]<span class="comment"># sbin/start-all.sh </span></span><br></pre></td></tr></table></figure>
+
+<p> 启动完毕后在主机浏览器访问界面：<a target="_blank" rel="noopener" href="http://192.168.77.138:8080/">http://192.168.77.138:8080/</a>  </p>
+<p><img src="/Spark%E6%90%AD%E5%BB%BA/image-20240321192254791.png" alt="image-20240321192254791"></p>
 
     </div>
 
@@ -266,7 +271,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://xiaowang.life/Kafka%E6%90%AD%E5%BB%BA.html" title="Kafka搭建">https://xiaowang.life/Kafka搭建.html</a>
+    <a href="https://xiaowang.life/Spark%E6%90%AD%E5%BB%BA.html" title="Spark搭建">https://xiaowang.life/Spark搭建.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -278,7 +283,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%90%AD%E5%BB%BA/" rel="tag"># 搭建</a>
-              <a href="/tags/kafka/" rel="tag"># kafka</a>
+              <a href="/tags/spark/" rel="tag"># spark</a>
           </div>
 
         
@@ -287,12 +292,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/Hadoop.html" rel="prev" title="Hadoop">
-      <i class="fa fa-chevron-left"></i> Hadoop
+    <a href="/Flume%E6%90%AD%E5%BB%BA.html" rel="prev" title="Flume搭建">
+      <i class="fa fa-chevron-left"></i> Flume搭建
     </a></div>
       <div class="post-nav-item">
-    <a href="/ZooKeeper%E6%90%AD%E5%BB%BA.html" rel="next" title="ZooKeeper搭建">
-      ZooKeeper搭建 <i class="fa fa-chevron-right"></i>
+    <a href="/Hive%E6%90%AD%E5%BB%BA.html" rel="next" title="Hive搭建">
+      Hive搭建 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
