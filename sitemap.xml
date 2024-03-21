@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://z000oooo.github.io/ZooKeeper%E6%90%AD%E5%BB%BA.html</loc>
+    <loc>https://xiaowang.life/ZooKeeper%E6%90%AD%E5%BB%BA.html</loc>
     
     <lastmod>2024-03-21</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://z000oooo.github.io/Kafka%E6%90%AD%E5%BB%BA.html</loc>
+    <loc>https://xiaowang.life/Kafka%E6%90%AD%E5%BB%BA.html</loc>
     
     <lastmod>2024-03-21</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://z000oooo.github.io/Hadoop.html</loc>
+    <loc>https://xiaowang.life/Hadoop.html</loc>
     
     <lastmod>2024-03-21</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://z000oooo.github.io/categories/index.html</loc>
+    <loc>https://xiaowang.life/categories/index.html</loc>
     
     <lastmod>2024-03-21</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://z000oooo.github.io/tags/index.html</loc>
+    <loc>https://xiaowang.life/tags/index.html</loc>
     
     <lastmod>2024-03-21</lastmod>
     
@@ -48,7 +48,7 @@
   
 
   <url>
-    <loc>https://z000oooo.github.io/</loc>
+    <loc>https://xiaowang.life/</loc>
     <lastmod>2024-03-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -56,28 +56,28 @@
 
   
   <url>
-    <loc>https://z000oooo.github.io/tags/%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://xiaowang.life/tags/%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2024-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z000oooo.github.io/tags/hadoop/</loc>
+    <loc>https://xiaowang.life/tags/hadoop/</loc>
     <lastmod>2024-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z000oooo.github.io/tags/kafka/</loc>
+    <loc>https://xiaowang.life/tags/kafka/</loc>
     <lastmod>2024-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://z000oooo.github.io/tags/ZooKeeper/</loc>
+    <loc>https://xiaowang.life/tags/ZooKeeper/</loc>
     <lastmod>2024-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -86,7 +86,7 @@
 
   
   <url>
-    <loc>https://z000oooo.github.io/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
+    <loc>https://xiaowang.life/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2024-03-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

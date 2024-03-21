@@ -17,28 +17,28 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"z000oooo.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"xiaowang.life","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="介绍ZooKeeper是一个分布式的应用程序协调服务，是Hadoop和Hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。其目标就是封装好复杂易出错的关键服务，将简单易用的接口和性能高效、功能稳定的系统提供给用户。那么Zookeeper能做什么事情呢？举个简单的例子：假设我们有20个搜索引擎的服务器(每个负责总索引中的一部分的搜">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ZooKeeper搭建">
-<meta property="og:url" content="https://z000oooo.github.io/ZooKeeper%E6%90%AD%E5%BB%BA.html">
+<meta property="og:url" content="https://xiaowang.life/ZooKeeper%E6%90%AD%E5%BB%BA.html">
 <meta property="og:site_name" content="Z000oooo">
 <meta property="og:description" content="介绍ZooKeeper是一个分布式的应用程序协调服务，是Hadoop和Hbase的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。其目标就是封装好复杂易出错的关键服务，将简单易用的接口和性能高效、功能稳定的系统提供给用户。那么Zookeeper能做什么事情呢？举个简单的例子：假设我们有20个搜索引擎的服务器(每个负责总索引中的一部分的搜">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://z000oooo.github.io/ZooKeeper%E6%90%AD%E5%BB%BA/image-20240321162010172.png">
-<meta property="og:image" content="https://z000oooo.github.io/ZooKeeper%E6%90%AD%E5%BB%BA/image-20240321162021254.png">
-<meta property="og:image" content="https://z000oooo.github.io/ZooKeeper%E6%90%AD%E5%BB%BA/image-20240321162028628.png">
+<meta property="og:image" content="https://xiaowang.life/ZooKeeper%E6%90%AD%E5%BB%BA/image-20240321162010172.png">
+<meta property="og:image" content="https://xiaowang.life/ZooKeeper%E6%90%AD%E5%BB%BA/image-20240321162021254.png">
+<meta property="og:image" content="https://xiaowang.life/ZooKeeper%E6%90%AD%E5%BB%BA/image-20240321162028628.png">
 <meta property="article:published_time" content="2024-03-21T08:17:39.000Z">
 <meta property="article:modified_time" content="2024-03-21T08:21:31.362Z">
 <meta property="article:author" content="Z000oooo">
 <meta property="article:tag" content="搭建">
 <meta property="article:tag" content="ZooKeeper">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://z000oooo.github.io/ZooKeeper%E6%90%AD%E5%BB%BA/image-20240321162010172.png">
+<meta name="twitter:image" content="https://xiaowang.life/ZooKeeper%E6%90%AD%E5%BB%BA/image-20240321162010172.png">
 
-<link rel="canonical" href="https://z000oooo.github.io/ZooKeeper%E6%90%AD%E5%BB%BA.html">
+<link rel="canonical" href="https://xiaowang.life/ZooKeeper%E6%90%AD%E5%BB%BA.html">
 
 
 <script id="page-configurations">
@@ -186,7 +186,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://z000oooo.github.io/ZooKeeper%E6%90%AD%E5%BB%BA.html">
+    <link itemprop="mainEntityOfPage" href="https://xiaowang.life/ZooKeeper%E6%90%AD%E5%BB%BA.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -275,7 +275,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://z000oooo.github.io/ZooKeeper%E6%90%AD%E5%BB%BA.html" title="ZooKeeper搭建">https://z000oooo.github.io/ZooKeeper搭建.html</a>
+    <a href="https://xiaowang.life/ZooKeeper%E6%90%AD%E5%BB%BA.html" title="ZooKeeper搭建">https://xiaowang.life/ZooKeeper搭建.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
