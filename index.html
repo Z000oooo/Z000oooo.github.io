@@ -202,7 +202,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-03-21 14:15:00 / 修改时间：14:26:15" itemprop="dateCreated datePublished" datetime="2024-03-21T14:15:00+08:00">2024-03-21</time>
+              <time title="创建时间：2024-03-21 14:15:00 / 修改时间：14:37:14" itemprop="dateCreated datePublished" datetime="2024-03-21T14:15:00+08:00">2024-03-21</time>
             </span>
 
           
@@ -237,7 +237,7 @@
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142333072.png" alt="image-20240321142333072"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142333072.png" alt="image-20240321142333072"></p>
 <ol start="2">
 <li>安装net-tools</li>
 </ol>
@@ -246,23 +246,23 @@
 <ol start="3">
 <li>查看Mac地址</li>
 </ol>
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142347034.png" alt="image-20240321142347034"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142347034.png" alt="image-20240321142347034"></p>
 <ol start="4">
 <li>查看ip地址的起始和结束地址、</li>
 </ol>
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142356700.png" alt="image-20240321142356700"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142356700.png" alt="image-20240321142356700"></p>
 <ol start="5">
 <li>修改网络配置文件</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="operator">/</span>etc<span class="operator">/</span>sysconfig<span class="operator">/</span>network<span class="operator">-</span>scripts<span class="operator">/</span>ifcfg<span class="operator">-</span>ens33</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142403678.png" alt="image-20240321142403678"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142403678.png" alt="image-20240321142403678"></p>
 <ol start="6">
 <li>重启网络服务，查看是否配置成功</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service network restart</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142414472.png" alt="image-20240321142414472"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142414472.png" alt="image-20240321142414472"></p>
 <ol start="7">
 <li>网络测试，输入以下命令</li>
 </ol>
@@ -271,27 +271,27 @@
 <li>测试网关：ping 192.168.77.2</li>
 <li>测试互联网：ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></li>
 </ul>
-<p>如图所示，说明网络是通的，否则说明网络参数有问题<br><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142424444.png" alt="image-20240321142424444"></p>
+<p>如图所示，说明网络是通的，否则说明网络参数有问题<br><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142424444.png" alt="image-20240321142424444"></p>
 <h1 id="2-虚拟机克隆配置"><a href="#2-虚拟机克隆配置" class="headerlink" title="2.虚拟机克隆配置"></a>2.虚拟机克隆配置</h1><ol>
 <li>克隆虚拟机（右键相应虚拟机-&gt;管理-&gt;克隆）</li>
 </ol>
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142430774.png" alt="image-20240321142430774"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142430774.png" alt="image-20240321142430774"></p>
 <ol start="2">
 <li>开启Hadoop2，修改主机名</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl <span class="keyword">set</span><span class="operator">-</span>hostname hadoop02</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142439024.png" alt="image-20240321142439024"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142439024.png" alt="image-20240321142439024"></p>
 <ol start="3">
 <li>查看Mac地址</li>
 </ol>
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142435811.png" alt="image-20240321142435811"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142435811.png" alt="image-20240321142435811"></p>
 <ol start="4">
 <li>网络配置文件修改</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="operator">/</span>etc<span class="operator">/</span>sysconfig<span class="operator">/</span>network<span class="operator">-</span>scripts<span class="operator">/</span>ifcfg<span class="operator">-</span>ens33</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142442760.png" alt="image-20240321142442760"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142442760.png" alt="image-20240321142442760"></p>
 <ol start="5">
 <li>按照以上步骤在克隆另外一台虚拟机Hadoop03</li>
 </ol>
@@ -300,29 +300,29 @@
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="operator">/</span>etc<span class="operator">/</span>hosts</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142447155.png" alt="image-20240321142447155"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142447155.png" alt="image-20240321142447155"></p>
 <ol start="2">
 <li>生成密钥文件（四次回车）</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh<span class="operator">-</span>keygen <span class="operator">-</span>t rsa</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142452082.png" alt="image-20240321142452082"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142452082.png" alt="image-20240321142452082"></p>
 <ol start="3">
 <li>将本机公钥文件复制到其他虚拟机上（接收方需要开机）</li>
 </ol>
 <p>在hadoop01上执行，先输入yes，后输入对应主机的密码，堕胎虚拟机配置操作相同</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh<span class="operator">-</span><span class="keyword">copy</span><span class="operator">-</span>id hadoop01</span><br><span class="line">ssh<span class="operator">-</span><span class="keyword">copy</span><span class="operator">-</span>id hadoop02</span><br><span class="line">ssh<span class="operator">-</span><span class="keyword">copy</span><span class="operator">-</span>id hadoop03</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142454929.png" alt="image-20240321142454929"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142454929.png" alt="image-20240321142454929"></p>
 <ol start="4">
 <li>在虚拟机hadoop02，hadoop03都需要执行，保证三台主机都能免密登录</li>
 <li>查看是否免密登录</li>
 </ol>
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142458555.png" alt="image-20240321142458555"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142458555.png" alt="image-20240321142458555"></p>
 <h1 id="4-Hadoop集群配置"><a href="#4-Hadoop集群配置" class="headerlink" title="4.Hadoop集群配置"></a>4.Hadoop集群配置</h1><ol>
 <li>在所有虚拟机根目录下新建文件夹export，exportt文件夹中新建data、servers和software文件</li>
 </ol>
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142501730.png" alt="image-20240321142501730"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142501730.png" alt="image-20240321142501730"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="operator">/</span></span><br><span class="line">mkdir <span class="operator">/</span>export</span><br><span class="line">mkdir <span class="operator">/</span>export<span class="operator">/</span>data</span><br><span class="line">mkdir <span class="operator">/</span>export<span class="operator">/</span>servers</span><br><span class="line">mkdir <span class="operator">/</span>export<span class="operator">/</span>software</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
@@ -334,13 +334,13 @@ jdk-8u161-linux-x64.tar.gz
 <li><p>用Xshell依次连接hadoop1，2，3</p>
 </li>
 </ol>
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142505844.png" alt="image-20240321142505844"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142505844.png" alt="image-20240321142505844"></p>
 <ol start="4">
 <li>先进入software文件内，然后把hadoop-2.7.4.tar.gz 、jdk-8u161-linux-x64.tar.gz上传进去</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="operator">/</span>export<span class="operator">/</span>software</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142509128.png" alt="image-20240321142509128"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142509128.png" alt="image-20240321142509128"></p>
 <ol start="5">
 <li>按照JDK（所有虚拟机都要操作）<ol>
 <li>解压jdk</li>
@@ -359,7 +359,7 @@ jdk-8u161-linux-x64.tar.gz
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#tip:在配置文件末尾追加</span><br><span class="line">export JAVA_HOME<span class="operator">=</span><span class="operator">/</span>export<span class="operator">/</span>servers<span class="operator">/</span>jdk</span><br><span class="line">export PATH<span class="operator">=</span>$PATH:$JAVA_HOME<span class="operator">/</span>bin</span><br><span class="line">export CLASSPATH<span class="operator">=</span>.:$JAVA_HOME<span class="operator">/</span>lib<span class="operator">/</span>dt.jar:$JAVA_HOME<span class="operator">/</span>lib<span class="operator">/</span>tools.jar</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142518650.png" alt="image-20240321142518650"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142518650.png" alt="image-20240321142518650"></p>
 <pre><code>  4. 使配置文件生效
 </code></pre>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source <span class="operator">/</span>etc<span class="operator">/</span>profile</span><br></pre></td></tr></table></figure>
@@ -368,7 +368,7 @@ jdk-8u161-linux-x64.tar.gz
 </code></pre>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java <span class="operator">-</span>version</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142521827.png" alt="image-20240321142521827"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142521827.png" alt="image-20240321142521827"></p>
 <ol start="6">
 <li>Hadoop安装（所有）<ol>
 <li>解压hadoop</li>
@@ -385,7 +385,7 @@ jdk-8u161-linux-x64.tar.gz
 </code></pre>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#tip:在文件末尾追加</span><br><span class="line">export HADOOP_HOME<span class="operator">=</span><span class="operator">/</span>export<span class="operator">/</span>servers<span class="operator">/</span>hadoop<span class="number">-2.7</span><span class="number">.4</span></span><br><span class="line">export PATH<span class="operator">=</span>$PATH:$HADOOP_HOME<span class="operator">/</span>bin:$HADOOP_HOME<span class="operator">/</span>sbin</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142524480.png" alt="image-20240321142524480"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142524480.png" alt="image-20240321142524480"></p>
 <pre><code>  4. 使配置文件生效
 </code></pre>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source <span class="operator">/</span>etc<span class="operator">/</span>profile</span><br></pre></td></tr></table></figure>
@@ -394,7 +394,7 @@ jdk-8u161-linux-x64.tar.gz
 </code></pre>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop version</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142526474.png" alt="image-20240321142526474"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142526474.png" alt="image-20240321142526474"></p>
 <ol start="7">
 <li>Hadoop集群配置<ol>
 <li>进入主节点配置目录</li>
@@ -463,7 +463,7 @@ jdk-8u161-linux-x64.tar.gz
 
 <pre><code>  3. 使用jps命令查看进程
 </code></pre>
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142534552.png" alt="image-20240321142534552"><br><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142538525.png" alt="image-20240321142538525"><br><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142542886.png" alt="image-20240321142542886"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142534552.png" alt="image-20240321142534552"><br><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142538525.png" alt="image-20240321142538525"><br><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142542886.png" alt="image-20240321142542886"></p>
 <ol start="2">
 <li>关闭防火墙</li>
 </ol>
@@ -476,36 +476,36 @@ jdk-8u161-linux-x64.tar.gz
 <ol start="4">
 <li>通过UI界面查看Hadoop运行状态，在windows系统下，访问<a href="http://hadoop01:50070,查看HDFS集群状态">http://hadoop01:50070,查看HDFS集群状态</a></li>
 </ol>
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142546700.png" alt="image-20240321142546700"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142546700.png" alt="image-20240321142546700"></p>
 <ol start="5">
 <li>在windows下，访问<a href="http://hadoop01:8088,查看Yarn集群状态">http://hadoop01:8088,查看Yarn集群状态</a></li>
 </ol>
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142548608.png" alt="image-20240321142548608"></p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142548608.png" alt="image-20240321142548608"></p>
 <h4 id="hadoop核心hdfs命令使用"><a href="#hadoop核心hdfs命令使用" class="headerlink" title="hadoop核心hdfs命令使用"></a>hadoop核心hdfs命令使用</h4><p>（1）在hdfs分布式文件系统上新建文件存储目录</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs <span class="operator">-</span>mkdir <span class="operator">-</span>p <span class="operator">/</span><span class="keyword">user</span><span class="operator">/</span>hadoop</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142551038.png" alt="image-20240321142551038"><br>（2)上传本地文件到hdfs分布式文件系统的指定目录中</p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142551038.png" alt="image-20240321142551038"><br>（2)上传本地文件到hdfs分布式文件系统的指定目录中</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs <span class="operator">-</span>put test.txt <span class="operator">/</span><span class="keyword">user</span><span class="operator">/</span>hadoop<span class="operator">/</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142553416.png" alt="image-20240321142553416"><br>（3)查看hdfs分布式文件系统内容</p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142553416.png" alt="image-20240321142553416"><br>（3)查看hdfs分布式文件系统内容</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs <span class="operator">-</span>ls <span class="operator">/</span><span class="keyword">user</span><span class="operator">/</span>hadoop</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142555552.png" alt="image-20240321142555552"><br>（4)查看上传文件信息</p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142555552.png" alt="image-20240321142555552"><br>（4)查看上传文件信息</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs <span class="operator">-</span>cat <span class="operator">/</span><span class="keyword">user</span><span class="operator">/</span>hadoop<span class="operator">/</span>test.txt</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142559681.png" alt="image-20240321142559681"><br>  (5)  下载hdfs分布式文件系统上文件到本地目录</p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142559681.png" alt="image-20240321142559681"><br>  (5)  下载hdfs分布式文件系统上文件到本地目录</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs <span class="operator">-</span><span class="keyword">get</span> <span class="operator">/</span><span class="keyword">user</span><span class="operator">/</span>hadoop<span class="operator">/</span>test.txt</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142604712.png" alt="image-20240321142604712">jps<br>（6)删除hdfs分布式文件系统内容</p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142604712.png" alt="image-20240321142604712">jps<br>（6)删除hdfs分布式文件系统内容</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs <span class="operator">-</span>rm <span class="operator">/</span><span class="keyword">user</span><span class="operator">/</span>hadoop<span class="operator">/</span>test.txt</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142607741.png" alt="image-20240321142607741"><br><img src="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682240640809-4742473c-bfd4-46d2-ae97-7e7623d03fa0.png#averageHue=%23fcfcfc&clientId=u1ad30e4d-132b-4&from=paste&height=194&id=uae62e156&originHeight=291&originWidth=1889&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=23185&status=done&style=none&taskId=u90e0635b-ec4b-480c-9937-0cb36177691&title=&width=1259.3333333333333" alt="image.png"><br>（7)运行一个简易的MapReduce程序<br>第一步先从本地上传进行统计计算的文件到hdfs文件系统中。例如将&#x2F;export&#x2F;servers&#x2F;hadoop-2.7.4&#x2F;etc&#x2F;hadoop中的*.xml配置文件上传到hdfs的&#x2F;zhu目录下，如图所示。</p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142607741.png" alt="image-20240321142607741"><br><img src="https://cdn.nlark.com/yuque/0/2023/png/34541925/1682240640809-4742473c-bfd4-46d2-ae97-7e7623d03fa0.png#averageHue=%23fcfcfc&clientId=u1ad30e4d-132b-4&from=paste&height=194&id=uae62e156&originHeight=291&originWidth=1889&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=23185&status=done&style=none&taskId=u90e0635b-ec4b-480c-9937-0cb36177691&title=&width=1259.3333333333333" alt="image.png"><br>（7)运行一个简易的MapReduce程序<br>第一步先从本地上传进行统计计算的文件到hdfs文件系统中。例如将&#x2F;export&#x2F;servers&#x2F;hadoop-2.7.4&#x2F;etc&#x2F;hadoop中的*.xml配置文件上传到hdfs的&#x2F;zhu目录下，如图所示。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="variable">@hadoop01</span> <span class="operator">~</span>]# hdfs dfs <span class="operator">-</span>mkdir <span class="operator">-</span>p <span class="operator">/</span>zhu</span><br><span class="line">[root<span class="variable">@hadoop01</span> <span class="operator">~</span>]# hdfs dfs <span class="operator">-</span>put <span class="operator">/</span>export<span class="operator">/</span>servers<span class="operator">/</span>hadoop<span class="number">-2.7</span><span class="number">.4</span><span class="operator">/</span>etc<span class="operator">/</span>hadoop<span class="comment">/*.xml /zhu</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142611964.png" alt="image-20240321142611964"><br>第二步使用hadoop提供的一个jar包，按照正则表达式进行统计。命令如下：</p>
+<p><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142611964.png" alt="image-20240321142611964"><br>第二步使用hadoop提供的一个jar包，按照正则表达式进行统计。命令如下：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar <span class="operator">/</span>export<span class="operator">/</span>servers<span class="operator">/</span>hadoop<span class="number">-2.7</span><span class="number">.4</span><span class="operator">/</span>share<span class="operator">/</span>hadoop<span class="operator">/</span>mapreduce<span class="operator">/</span>hadoop<span class="operator">-</span>mapreduce<span class="operator">-</span>examples<span class="number">-2.7</span><span class="number">.4</span>.jar grep <span class="operator">/</span>zhu <span class="operator">/</span>optput <span class="string">&#x27;dfs[a-z]+&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<p>结果：<br><img src="/.com//Blog\source_posts\Hadoop从0到1搭建\image-20240321142614287.png" alt="image-20240321142614287"></p>
+<p>结果：<br><img src="/.com//Hadoop%E4%BB%8E0%E5%88%B01%E6%90%AD%E5%BB%BA%5Cimage-20240321142614287.png" alt="image-20240321142614287"></p>
 <h1 id="启动-关闭"><a href="#启动-关闭" class="headerlink" title="启动&#x2F;关闭"></a>启动&#x2F;关闭</h1><p>启动之前必须进行一次格式化操作</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin<span class="operator">/</span>hadoop namenode <span class="operator">-</span>format</span><br></pre></td></tr></table></figure>
 
